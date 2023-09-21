@@ -1,0 +1,73 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 1em;
+  background-color: black;
+  font-family: "Courier New", Courier, monospace;
+
+  line-height: 1.5;
+
+  height: 100%;
+}
+
+header {
+  /* remove this test code: */
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 1.25em;
+  padding: 0;
+  margin: 0 0 1em;
+  line-height: inherit;
+  text-align: center;
+}
+
+p {
+  margin: 0 0 1.5em;
+}
+
+.background {
+  max-width: 50em;
+  padding: 1em;
+  background-color: #dae8f2;
+  margin: auto;
+  border-radius: 0.5em;
+  overflow: auto;
+
+  height: 100%;
+}
+
+/* .centered {
+  padding: 1em;
+  background-color: #dae8f2;
+  border-radius: 0.5em;
+} */
+
+/* .centered {
+  width: fit-content;
+  margin: auto;
+} */
+
+.poem {
+  width: fit-content;
+  margin: auto;
+  white-space: pre;
+}
+
+.comment {
+  /* text-align: justify; */
+  font-style: italic;
+}
