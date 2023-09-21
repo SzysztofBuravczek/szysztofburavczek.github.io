@@ -39,6 +39,12 @@ p {
   margin: 0 0 1.5em;
 }
 
+a {
+  text-decoration: none;
+  /* TODO: diversify clicked and un-clicked links */
+  color: #00f;
+}
+
 .background {
   max-width: 50em;
   padding: 1em;
