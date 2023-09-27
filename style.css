@@ -41,8 +41,15 @@ p {
 
 a {
   text-decoration: none;
-  /* TODO: diversify clicked and un-clicked links */
   color: #00f;
+}
+
+a:hover {
+  color: #00f;
+}
+
+a:active {
+  color: #f02;
 }
 
 .background {
@@ -56,17 +63,6 @@ a {
   height: 100%;
 }
 
-/* .centered {
-  padding: 1em;
-  background-color: #dae8f2;
-  border-radius: 0.5em;
-} */
-
-/* .centered {
-  width: fit-content;
-  margin: auto;
-} */
-
 .poem {
   width: fit-content;
   margin: auto;
@@ -74,6 +70,36 @@ a {
 }
 
 .comment {
-  /* text-align: justify; */
   font-style: italic;
+}
+
+.choose-lang-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90%;
+}
+
+.choose-lang-list {
+  font-size: 2em;
+  list-style: none;
+  margin-right: 1em;
+  padding: 0;
+}
+
+.choose-lang-list > li {
+  margin-top: 0.5em;
+}
+
+.choose-lang-link {
+  border-radius: 0.5em;
+  border-style: solid;
+  display: block;
+  text-align: center;
+  color: #000;
+  padding: 0 0.5em;
+}
+
+.logo-large {
+  height: 20em;
 }
