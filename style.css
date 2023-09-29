@@ -1,3 +1,9 @@
+@font-face {
+  font-family: "Courier New";
+  src: url("courier_new.woff2") format("woff2"),
+    url("courier_new.ttf") format("truetype");
+}
+
 * {
   box-sizing: border-box;
 }
@@ -10,7 +16,7 @@ body {
   margin: 0;
   padding: 1em;
   background-color: black;
-  font-family: "Courier New", Courier, monospace;
+  font-family: "Courier New", monospace;
 
   line-height: 1.5;
 
@@ -75,6 +81,7 @@ a:active {
 
 .choose-lang-menu {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   height: 90%;
@@ -94,6 +101,7 @@ a:active {
 .choose-lang-link {
   border-radius: 0.5em;
   border-style: solid;
+  border-width: 3px;
   display: block;
   text-align: center;
   color: #000;
