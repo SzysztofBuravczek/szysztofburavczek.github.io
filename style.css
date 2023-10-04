@@ -58,6 +58,11 @@ a:active {
   color: #f02;
 }
 
+ul {
+  list-style: none;
+  padding: 0;
+}
+
 .background {
   max-width: 50em;
   padding: 1em;
@@ -89,9 +94,7 @@ a:active {
 
 .choose-lang-list {
   font-size: 2em;
-  list-style: none;
   margin-right: 1em;
-  padding: 0;
 }
 
 .choose-lang-list > li {
