@@ -74,6 +74,48 @@ ul {
   height: 100%;
 }
 
+.button {
+  background-color: transparent;
+  border-color: #000;
+  border-radius: 0.5em;
+  border-style: solid;
+  border-width: 3px;
+  display: block;
+  text-align: center;
+  color: #000;
+  padding: 0 0.5em;
+}
+
+.button:not([disabled]) {
+  cursor: pointer;
+}
+
+.button:hover:not([disabled]) {
+  color: #00f;
+  border-color: #00f;
+}
+
+.button:active:not([disabled]) {
+  color: #f02;
+  border-color: #f02;
+}
+
+.button-highlight {
+  color: #fff;
+  border-color: #fff;
+  background-color: #000;
+}
+
+.tab-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.tab-list > li {
+  margin: 0.5em;
+}
+
 .poem {
   width: fit-content;
   margin: auto;
@@ -99,16 +141,6 @@ ul {
 
 .choose-lang-list > li {
   margin-top: 0.5em;
-}
-
-.choose-lang-link {
-  border-radius: 0.5em;
-  border-style: solid;
-  border-width: 3px;
-  display: block;
-  text-align: center;
-  color: #000;
-  padding: 0 0.5em;
 }
 
 .logo-large {
