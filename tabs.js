@@ -41,13 +41,13 @@
     for (let i = 0; i < controlBtns.length; i++) {
       if (tabNames[i] == tabName) {
         controlBtns[i].disabled = true;
-        controlBtns[i].classList.add("button-highlight");
+        controlBtns[i].classList.add("highlight");
         if (tabs[i]) {
           tabs[i].style.display = "";
         }
       } else {
         controlBtns[i].disabled = false;
-        controlBtns[i].classList.remove("button-highlight");
+        controlBtns[i].classList.remove("highlight");
         if (tabs[i]) {
           tabs[i].style.display = "none";
         }

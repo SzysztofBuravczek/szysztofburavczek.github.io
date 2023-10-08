@@ -28,10 +28,6 @@ header {
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-}
-
 h1 {
   font-weight: bold;
   font-size: 1.5em;
@@ -80,10 +76,12 @@ ul {
   border-radius: 0.5em;
   border-style: solid;
   border-width: 3px;
-  display: block;
   text-align: center;
   color: #000;
   padding: 0 0.5em;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
 }
 
 .button:not([disabled]) {
@@ -100,9 +98,13 @@ ul {
   border-color: #f02;
 }
 
-.button-highlight {
+.fill {
+  display: block;
+  width: 100%;
+}
+
+.highlight {
   color: #fff;
-  border-color: #fff;
   background-color: #000;
 }
 
@@ -141,6 +143,10 @@ ul {
 
 .choose-lang-list > li {
   margin-top: 0.5em;
+}
+
+.logo {
+  height: 6em;
 }
 
 .logo-large {
