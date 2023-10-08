@@ -24,17 +24,51 @@ body {
 }
 
 header {
-  /* remove this test code: */
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-h1 {
+nav,
+header > div {
+  width: 12em;
+}
+
+nav > ul > li {
+  margin: 0.5em;
+}
+
+address > ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+address > ul > li {
+  margin: 0 0.5em;
+}
+
+h1,
+h2,
+h3 {
   font-weight: bold;
-  font-size: 1.5em;
   padding: 0;
   margin: 0 0 1em;
   line-height: inherit;
   text-align: center;
+}
+
+h1 {
+  font-size: 1.5em;
+}
+
+h2 {
+  font-size: 1.25em;
+}
+
+h3 {
+  font-size: 1em;
 }
 
 p {
@@ -57,6 +91,12 @@ a:active {
 ul {
   list-style: none;
   padding: 0;
+}
+
+footer {
+  margin-top: 3em;
+  border-top-style: solid;
+  border-top-width: 3px;
 }
 
 .background {
@@ -96,6 +136,10 @@ ul {
 .button:active:not([disabled]) {
   color: #f02;
   border-color: #f02;
+}
+
+.centered {
+  text-align: center;
 }
 
 .fill {
@@ -151,4 +195,8 @@ ul {
 
 .logo-large {
   height: 20em;
+}
+
+.logo-social {
+  width: 2em;
 }
