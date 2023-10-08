@@ -16,7 +16,7 @@
       var result = [""];
       for (var i = 0; i < str.length; i++) {
         if (str[i] == sep) {
-          result.push("");
+          result[result.length] = "";
         } else {
           result[result.length - 1] += str[i];
         }
