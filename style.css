@@ -79,7 +79,7 @@ header > div {
   width: 12em;
 }
 
-nav > ul > li {
+nav li {
   margin: 0.5em;
 }
 
@@ -246,4 +246,22 @@ footer {
 
 #choose-lang > li:not(:last-child) {
   margin-bottom: 1em;
+}
+
+@media screen and (max-width: 26.5em) {
+  header span {
+    display: none;
+  }
+
+  header address {
+    margin: 0;
+  }
+
+  header address > ul {
+    margin-bottom: 0;
+  }
+
+  .background {
+    padding-top: 0.2em;
+  }
 }
