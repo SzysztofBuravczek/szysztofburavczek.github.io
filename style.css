@@ -187,12 +187,16 @@ footer {
 
 .poem {
   width: fit-content;
-  margin: auto;
+  margin: 1.5em auto;
   white-space: pre;
 }
 
-.poem:not(:last-child) {
-  margin-bottom: 1.5em;
+.no-bottom {
+  margin-bottom: 0;
+}
+
+.no-top {
+  margin-top: 0;
 }
 
 .comment {
