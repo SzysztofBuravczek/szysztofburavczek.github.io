@@ -191,6 +191,10 @@ footer {
   white-space: pre;
 }
 
+.poem:not(:last-child) {
+  margin-bottom: 1.5em;
+}
+
 .comment {
   font-style: italic;
 }
