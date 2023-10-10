@@ -98,24 +98,41 @@
   var openPopups = [];
 
   document.addEventListener("click", function (e) {
-    if (e.target.dataset.tab) {
-      setTab(e.target.dataset.tab);
+    var target = e.target;
+    while (!respond(target) && target.parentNode) {
+      target = target.parentNode;
     }
-    if (e.target.dataset.close) {
-      e.target.dataset.close.split(" ").forEach(closePopup);
+  });
+
+  function respond(target) {
+    if (!target.dataset) {
+      return false;
+    }
+    var catched = false;
+
+    if (target.dataset.tab) {
+      setTab(target.dataset.tab);
+      catched = true;
+    }
+    if (target.dataset.close) {
+      target.dataset.close.split(" ").forEach(closePopup);
 
       if (popupBackdrop && !openPopups.length) {
         popupBackdrop.style.display = "none";
       }
+      catched = true;
     }
-    if (e.target.dataset.open) {
-      e.target.dataset.open.split(" ").forEach(openPopup);
+    if (target.dataset.open) {
+      target.dataset.open.split(" ").forEach(openPopup);
 
       if (popupBackdrop && openPopups.length) {
         popupBackdrop.style.display = "";
       }
+      catched = true;
     }
-  });
+
+    return catched;
+  }
 
   function setTab(tabName) {
     for (var i = 0; i < tabControlBtns.length; i++) {
