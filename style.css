@@ -232,6 +232,36 @@ footer {
   width: 2em;
 }
 
+.releases {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  margin-bottom: 1.5em;
+}
+
+.releases > li {
+  width: 10em;
+  text-align: center;
+  margin: 0 0.5em 1em;
+}
+
+.releases img {
+  width: 100%;
+}
+
+.releases a {
+  color: #000;
+}
+
+.releases a:hover {
+  color: #00f;
+}
+
+.releases a:active {
+  color: #f02;
+}
+
 #backdrop {
   position: fixed;
   left: 0;
