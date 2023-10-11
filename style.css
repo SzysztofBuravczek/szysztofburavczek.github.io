@@ -203,6 +203,13 @@ footer {
   font-style: italic;
 }
 
+.date {
+  text-align: center;
+  font-weight: bold;
+  font-style: italic;
+  margin: 1.5em 0 3em;
+}
+
 .choose-lang-menu {
   display: flex;
   flex-wrap: wrap;
