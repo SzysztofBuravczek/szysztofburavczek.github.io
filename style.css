@@ -191,6 +191,14 @@ footer {
   white-space: pre;
 }
 
+.no-bottom {
+  margin-bottom: 0;
+}
+
+.no-top {
+  margin-top: 0;
+}
+
 .comment {
   font-style: italic;
 }
@@ -262,6 +270,10 @@ footer {
   color: #f02;
 }
 
+.latest {
+  margin: 0 auto;
+}
+
 .from {
   text-align: center;
   margin-bottom: 1.5em;
@@ -269,14 +281,6 @@ footer {
 
 .from a {
   font-weight: bold;
-}
-
-.no-bottom {
-  margin-bottom: 0;
-}
-
-.no-top {
-  margin-top: 0;
 }
 
 #backdrop {
@@ -318,5 +322,11 @@ footer {
 
   .background {
     padding-top: 0.2em;
+  }
+}
+
+@media screen and (max-width: 49em) {
+  .latest {
+    max-width: 22em;
   }
 }
