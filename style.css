@@ -283,6 +283,10 @@ footer {
   font-weight: bold;
 }
 
+.sorted {
+  margin-bottom: 1.5em;
+}
+
 #backdrop {
   position: fixed;
   left: 0;
