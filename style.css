@@ -89,7 +89,7 @@ nav li {
 }
 
 address {
-  margin: 0.75em 0;
+  margin: 1em 0;
 }
 
 address > ul {
@@ -245,6 +245,7 @@ footer {
 
 .logo-social {
   width: 2em;
+  vertical-align: middle;
 }
 
 .links,
