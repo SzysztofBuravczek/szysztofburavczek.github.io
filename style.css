@@ -68,6 +68,11 @@ ul {
   margin: 0;
 }
 
+ol {
+  margin: 0 auto 1.5em;
+  width: fit-content;
+}
+
 header {
   display: flex;
   justify-content: space-between;
@@ -207,6 +212,9 @@ footer {
   text-align: center;
   font-weight: bold;
   font-style: italic;
+}
+
+.in-lyrics {
   margin: 1.5em 0 3em;
 }
 
@@ -239,6 +247,7 @@ footer {
   width: 2em;
 }
 
+.links,
 .releases {
   display: flex;
   flex-wrap: wrap;
@@ -247,26 +256,33 @@ footer {
   margin-bottom: 1.5em;
 }
 
+.links > li {
+  width: 6em;
+}
+
 .releases > li {
   width: 10em;
+}
+
+.item {
   text-align: center;
   margin: 0 0.5em 1em;
 }
 
-.releases img {
+.item img {
   width: 100%;
   box-shadow: 0 0 0.1em;
 }
 
-.releases a {
+.item a {
   color: #000;
 }
 
-.releases a:hover {
+.item a:hover {
   color: #00f;
 }
 
-.releases a:active {
+.item a:active {
   color: #f02;
 }
 
@@ -285,6 +301,14 @@ footer {
 
 .sorted {
   margin-bottom: 1.5em;
+}
+
+.cover {
+  max-width: 30em;
+  width: 100%;
+  display: block;
+  margin: 1em auto 0;
+  box-shadow: 0 0 0.1em;
 }
 
 #backdrop {
