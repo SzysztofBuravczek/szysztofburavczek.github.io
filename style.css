@@ -318,6 +318,21 @@ footer {
   padding: 0.5em;
 }
 
+.footnote {
+  position: relative;
+  margin-top: 3em;
+}
+
+.footnote::before {
+  position: absolute;
+  top: -0.5em;
+  content: "";
+  width: 100%;
+  max-width: 10em;
+  border-top-style: solid;
+  border-top-width: 0.1em;
+}
+
 #backdrop {
   position: fixed;
   left: 0;
