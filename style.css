@@ -312,6 +312,12 @@ footer {
   box-shadow: 0 0 0.1em;
 }
 
+.warning {
+  background-color: #fff;
+  border-style: solid;
+  padding: 0.5em;
+}
+
 #backdrop {
   position: fixed;
   left: 0;
