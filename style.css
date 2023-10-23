@@ -289,14 +289,16 @@ footer {
   color: #00f;
 }
 
-.item a:active {
-  color: #f02;
-}
-
 .to-top::before,
 .to-top::after {
   content: " ^ ";
   font-weight: normal;
+}
+
+.item a:active,
+.to-top:active::before,
+.to-top:active::after {
+  color: #f02;
 }
 
 .latest {
