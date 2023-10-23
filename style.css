@@ -276,16 +276,27 @@ footer {
   box-shadow: 0 0 0.1em;
 }
 
-.item a {
+.item a,
+.to-top,
+.to-top:active,
+.to-top:hover {
   color: #000;
 }
 
-.item a:hover {
+.item a:hover,
+.to-top::before,
+.to-top::after {
   color: #00f;
 }
 
 .item a:active {
   color: #f02;
+}
+
+.to-top::before,
+.to-top::after {
+  content: " ^ ";
+  font-weight: normal;
 }
 
 .latest {
