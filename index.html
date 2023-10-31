@@ -57,15 +57,37 @@
           return;
         }
 
-        if (localStorage && location.replace) {
-          var localLang = localStorage.getItem("lang");
-          if (localLang) {
-            langLinks = document.querySelectorAll("a");
-            for (var i = 0; i < langLinks.length; i++) {
-              if (langLinks[i].lang == localLang) {
-                location.replace(location.href.replace("?", localLang));
+        if (location.replace) {
+          var langLinks = document.querySelectorAll("a");
 
-                return;
+          if (localStorage) {
+            var localLang = localStorage.getItem("lang");
+            if (localLang) {
+              for (var i = 0; i < langLinks.length; i++) {
+                if (langLinks[i].lang == localLang) {
+                  location.replace(location.href.replace("?", localLang));
+
+                  return;
+                }
+              }
+            }
+          }
+
+          if (navigator) {
+            var navLangList = navigator.languages;
+            if (!navLangList) {
+              navLangList = [navigator.language];
+            }
+
+            for (var i = 0; i < langLinks.length; i++) {
+              for (var j = 0; j < navLangList.length; j++) {
+                var navLang = navLangList[j][0] + navLangList[j][1];
+
+                if (langLinks[i].lang == navLang) {
+                  location.replace(location.href.replace("?", navLang));
+
+                  return;
+                }
               }
             }
           }
