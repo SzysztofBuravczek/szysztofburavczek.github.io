@@ -120,15 +120,12 @@
                 var linkLang = linkRgx[1];
 
                 popup = popup
-                  .replace(
-                    /<button.*?lang="(.*?)".*?>/gs,
-                    function (src, lang) {
-                      return linkRgx[0].replace(
-                        new RegExp(linkRgx[1], "gs"),
-                        lang
-                      );
-                    }
-                  )
+                  .replace(/<button.*?lang="(.*?)".*?>/s, function (src, lang) {
+                    return linkRgx[0].replace(
+                      new RegExp(linkRgx[1], "gs"),
+                      lang
+                    );
+                  })
                   .replace("</button>", "</a>");
               }
             } else {
