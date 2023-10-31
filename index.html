@@ -104,7 +104,7 @@
         xhr.open("GET", url);
         xhr.send();
         xhr.onreadystatechange = function () {
-          if (xhr.readyState === 4) {
+          if (xhr.readyState == 4) {
             var mainRgx = /<main>(.*)<\/main>/s.exec(xhr.responseText);
             var popupRgx = /<div id="backdrop".*<\/div>/s.exec(
               xhr.responseText
