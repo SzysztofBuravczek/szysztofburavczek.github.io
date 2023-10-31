@@ -116,9 +116,6 @@
 
               var linkRgx = /<a.*?lang="(.*?)".*?>/s.exec(popup);
               if (linkRgx) {
-                var link = linkRgx[0];
-                var linkLang = linkRgx[1];
-
                 popup = popup
                   .replace(/<button.*?lang="(.*?)".*?>/s, function (src, lang) {
                     return linkRgx[0].replace(
