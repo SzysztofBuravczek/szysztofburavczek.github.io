@@ -45,5 +45,65 @@
         </div>
       </div>
     </div>
+    <script>
+      (function () {
+        if (
+          !document.querySelector ||
+          !String.prototype.replace ||
+          !RegExp ||
+          !location ||
+          !location.search
+        ) {
+          return;
+        }
+
+        var background = document.querySelector(".background");
+        var langList = document.querySelector(".choose-lang-list");
+        var url = location.search.replace("?", "en");
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", url);
+        xhr.send();
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4) {
+            var mainRgx = /<main>(.*)<\/main>/s.exec(xhr.responseText);
+            var popupRgx = /<div id="backdrop".*<\/div>/s.exec(
+              xhr.responseText
+            );
+
+            var popup = "";
+            if (popupRgx) {
+              popup = popupRgx[0].replace(/\sstyle=".*?"/, "");
+
+              var linkRgx = /<a.*?lang="(.*?)".*?>/s.exec(popup);
+              if (linkRgx) {
+                var link = linkRgx[0];
+                var linkLang = linkRgx[1];
+
+                popup = popup
+                  .replace(
+                    /<button.*?lang="(.*?)".*?>/gs,
+                    function (src, lang) {
+                      return linkRgx[0].replace(
+                        new RegExp(linkRgx[1], "gs"),
+                        lang
+                      );
+                    }
+                  )
+                  .replace("</button>", "</a>");
+              }
+            } else {
+              popup =
+                '<div id="backdrop"><div id="choose-lang">' +
+                background.innerHTML +
+                "</div></div>";
+            }
+
+            if (mainRgx) {
+              background.innerHTML = mainRgx[1] + popup;
+            }
+          }
+        };
+      })();
+    </script>
   </body>
 </html>
