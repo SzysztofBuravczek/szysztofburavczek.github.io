@@ -10,6 +10,16 @@
     return;
   }
 
+  if (localStorage) {
+    var chooseLang = document.getElementById("choose-lang");
+    if (chooseLang) {
+      var activeLangBtn = chooseLang.querySelector("button");
+      if (activeLangBtn) {
+        localStorage.setItem("lang", activeLangBtn.lang);
+      }
+    }
+  }
+
   if (!String.prototype.split) {
     String.prototype.split = function (sep) {
       var str = this.toString();

@@ -57,6 +57,20 @@
           return;
         }
 
+        if (localStorage && location.replace) {
+          var localLang = localStorage.getItem("lang");
+          if (localLang) {
+            langLinks = document.querySelectorAll("a");
+            for (var i = 0; i < langLinks.length; i++) {
+              if (langLinks[i].lang == localLang) {
+                location.replace(location.href.replace("?", localLang));
+
+                return;
+              }
+            }
+          }
+        }
+
         var background = document.querySelector(".background");
         var langList = document.querySelector(".choose-lang-list");
         var url = location.search.replace("?", "en");
