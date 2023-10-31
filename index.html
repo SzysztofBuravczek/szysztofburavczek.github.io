@@ -76,7 +76,11 @@
           if (navigator) {
             var navLangList = navigator.languages;
             if (!navLangList) {
-              navLangList = [navigator.language];
+              if (navigator.language) {
+                navLangList = [navigator.language];
+              } else {
+                navLangList = [];
+              }
             }
 
             for (var i = 0; i < langLinks.length; i++) {
