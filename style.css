@@ -121,8 +121,11 @@ address a:active {
   border-color: #f02;
 }
 
+main {
+  margin-bottom: 3em;
+}
+
 footer {
-  margin-top: 3em;
   border-top-style: solid;
   border-top-width: 0.2em;
 }
