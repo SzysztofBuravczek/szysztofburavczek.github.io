@@ -97,9 +97,12 @@
   }
 
   for (var i = 0; i < tabControlBtns.length; i++) {
-    tabNames[i] = tabControlBtns[i].dataset.tab;
+    tabNames[i] = tabControlBtns[i].getAttribute("data-tab");
     tabs[i] = document.getElementById(tabNames[i]);
-    if (!defaultTabName && tabControlBtns[i].dataset.defaultTab != undefined) {
+    if (
+      !defaultTabName &&
+      tabControlBtns[i].getAttribute("data-default-tab") != null
+    ) {
       defaultTabName = tabNames[i];
     }
     if (hash.indexOf(tabNames[i]) == 1) {
@@ -123,25 +126,29 @@
   });
 
   function respond(target) {
-    if (!target.dataset) {
+    if (!target.getAttribute) {
       return false;
     }
     var catched = false;
 
-    if (target.dataset.tab) {
-      setTab(target.dataset.tab, true);
+    var tab = target.getAttribute("data-tab");
+    var close = target.getAttribute("data-close");
+    var open = target.getAttribute("data-open");
+
+    if (tab) {
+      setTab(tab, true);
       catched = true;
     }
-    if (target.dataset.close) {
-      target.dataset.close.split(" ").forEach(closePopup);
+    if (close) {
+      close.split(" ").forEach(closePopup);
 
       if (popupBackdrop && !openPopups.length) {
         popupBackdrop.style.display = "none";
       }
       catched = true;
     }
-    if (target.dataset.open) {
-      target.dataset.open.split(" ").forEach(openPopup);
+    if (open) {
+      open.split(" ").forEach(openPopup);
 
       if (popupBackdrop && openPopups.length) {
         popupBackdrop.style.display = "";
