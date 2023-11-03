@@ -91,17 +91,25 @@
   var tabs = new Array(tabControlBtns.length);
   var defaultTabName;
 
+  var hash = "";
+  if (location) {
+    hash = location.hash;
+  }
+
   for (var i = 0; i < tabControlBtns.length; i++) {
     tabNames[i] = tabControlBtns[i].dataset.tab;
     tabs[i] = document.getElementById(tabNames[i]);
-    if (tabControlBtns[i].dataset.defaultTab != undefined) {
+    if (!defaultTabName && tabControlBtns[i].dataset.defaultTab != undefined) {
+      defaultTabName = tabNames[i];
+    }
+    if (hash.indexOf(tabNames[i]) == 1) {
       defaultTabName = tabNames[i];
     }
   }
   if (!defaultTabName) {
     defaultTabName = tabNames[0];
   }
-  setTab(defaultTabName);
+  setTab(defaultTabName, false);
 
   var popupBackdrop = document.getElementById("backdrop");
   var openPopupNames = [];
@@ -121,7 +129,7 @@
     var catched = false;
 
     if (target.dataset.tab) {
-      setTab(target.dataset.tab);
+      setTab(target.dataset.tab, true);
       catched = true;
     }
     if (target.dataset.close) {
@@ -144,16 +152,18 @@
     return catched;
   }
 
-  function setTab(tabName) {
+  function setTab(tabName, setHash) {
+    if (setHash && location) {
+      location.hash = tabName + "-tab";
+    }
+
     for (var i = 0; i < tabControlBtns.length; i++) {
       if (tabNames[i] == tabName) {
-        tabControlBtns[i].disabled = true;
         tabControlBtns[i].classList.add("highlight");
         if (tabs[i]) {
           tabs[i].style.display = "";
         }
       } else {
-        tabControlBtns[i].disabled = false;
         tabControlBtns[i].classList.remove("highlight");
         if (tabs[i]) {
           tabs[i].style.display = "none";

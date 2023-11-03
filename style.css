@@ -159,9 +159,11 @@ footer {
   cursor: pointer;
 }
 
-.button:hover:not([disabled]) {
-  color: #00f;
-  border-color: #00f;
+@media (hover: hover) {
+  .button:hover:not([disabled]) {
+    color: #00f;
+    border-color: #00f;
+  }
 }
 
 .button:active:not([disabled]) {
