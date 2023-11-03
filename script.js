@@ -85,10 +85,10 @@
     };
   }
 
-  var tabControlBtns = document.querySelectorAll("[data-tab]");
+  var tabControlBtns = document.querySelectorAll("[data-tab-ctrl]");
+  var tabs = document.querySelectorAll("[data-tab]");
 
   var tabNames = new Array(tabControlBtns.length);
-  var tabs = new Array(tabControlBtns.length);
   var defaultTabName;
 
   var hash = "";
@@ -97,8 +97,7 @@
   }
 
   for (var i = 0; i < tabControlBtns.length; i++) {
-    tabNames[i] = tabControlBtns[i].getAttribute("data-tab");
-    tabs[i] = document.getElementById(tabNames[i]);
+    tabNames[i] = tabControlBtns[i].getAttribute("data-tab-ctrl");
     if (
       !defaultTabName &&
       tabControlBtns[i].getAttribute("data-default-tab") != null
@@ -131,12 +130,12 @@
     }
     var catched = false;
 
-    var tab = target.getAttribute("data-tab");
+    var tabCtrl = target.getAttribute("data-tab-ctrl");
     var close = target.getAttribute("data-close");
     var open = target.getAttribute("data-open");
 
-    if (tab) {
-      setTab(tab, true);
+    if (tabCtrl) {
+      setTab(tabCtrl, true);
       catched = true;
     }
     if (close) {
@@ -161,20 +160,22 @@
 
   function setTab(tabName, setHash) {
     if (setHash && location) {
-      location.hash = tabName + "-tab";
+      location.hash = tabName;
     }
 
     for (var i = 0; i < tabControlBtns.length; i++) {
       if (tabNames[i] == tabName) {
         tabControlBtns[i].classList.add("highlight");
-        if (tabs[i]) {
-          tabs[i].style.display = "";
-        }
       } else {
         tabControlBtns[i].classList.remove("highlight");
-        if (tabs[i]) {
-          tabs[i].style.display = "none";
-        }
+      }
+    }
+
+    for (var i = 0; i < tabs.length; i++) {
+      if (tabs[i].getAttribute("data-tab") == tabName) {
+        tabs[i].style.display = "";
+      } else {
+        tabs[i].style.display = "none";
       }
     }
   }
