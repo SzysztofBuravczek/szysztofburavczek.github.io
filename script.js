@@ -169,6 +169,14 @@
     if (href == "#top" && target.scrollIntoView && e.preventDefault) {
       document.querySelector(href).scrollIntoView();
       e.preventDefault();
+
+      if (location && location.hash) {
+        if (currentTabName) {
+          location.hash = currentTabName;
+        } else {
+          location.hash = "";
+        }
+      }
     }
 
     return catched;
