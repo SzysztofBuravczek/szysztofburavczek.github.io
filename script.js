@@ -110,7 +110,7 @@
 
   document.addEventListener("click", function (e) {
     var target = e.target;
-    while (!respond(target) && target.parentNode) {
+    while (!respond(target, e) && target.parentNode) {
       target = target.parentNode;
     }
   });
@@ -130,7 +130,7 @@
     }
   });
 
-  function respond(target) {
+  function respond(target, e) {
     if (!target.getAttribute) {
       return false;
     }
@@ -139,6 +139,7 @@
     var tabCtrl = target.getAttribute("data-tab-ctrl");
     var close = target.getAttribute("data-close");
     var open = target.getAttribute("data-open");
+    var href = target.getAttribute("href");
 
     if (tabCtrl) {
       if (location) {
@@ -163,6 +164,11 @@
         popupBackdrop.style.display = "";
       }
       catched = true;
+    }
+
+    if (href == "#top" && target.scrollIntoView && e.preventDefault) {
+      document.querySelector(href).scrollIntoView();
+      e.preventDefault();
     }
 
     return catched;
