@@ -91,27 +91,18 @@
   var tabNames = new Array(tabControlBtns.length);
   var defaultTabName;
 
-  var hash = "";
-  if (location) {
-    hash = location.hash;
-  }
-
   for (var i = 0; i < tabControlBtns.length; i++) {
     tabNames[i] = tabControlBtns[i].getAttribute("data-tab-ctrl");
-    if (
-      !defaultTabName &&
-      tabControlBtns[i].getAttribute("data-default-tab") != null
-    ) {
-      defaultTabName = tabNames[i];
-    }
-    if (hash.indexOf(tabNames[i]) == 1) {
+    if (tabControlBtns[i].getAttribute("data-default-tab") != null) {
       defaultTabName = tabNames[i];
     }
   }
   if (!defaultTabName) {
     defaultTabName = tabNames[0];
   }
-  setTab(defaultTabName, false);
+
+  var currentTabName = defaultTabName;
+  setTab(currentTabName);
 
   var popupBackdrop = document.getElementById("backdrop");
   var openPopupNames = [];
@@ -121,6 +112,21 @@
     var target = e.target;
     while (!respond(target) && target.parentNode) {
       target = target.parentNode;
+    }
+  });
+
+  addEventListener("hashchange", function () {
+    setTab(currentTabName);
+
+    var element;
+    if (location && location.hash) {
+      element = document.querySelector(location.hash);
+    }
+    if (!element) {
+      element = document.querySelector("#top");
+    }
+    if (element.scrollIntoView) {
+      element.scrollIntoView();
     }
   });
 
@@ -135,7 +141,11 @@
     var open = target.getAttribute("data-open");
 
     if (tabCtrl) {
-      setTab(tabCtrl, true);
+      if (location) {
+        location.hash = tabCtrl;
+      } else {
+        setTab(tabCtrl);
+      }
       catched = true;
     }
     if (close) {
@@ -158,9 +168,18 @@
     return catched;
   }
 
-  function setTab(tabName, setHash) {
-    if (setHash && location) {
-      location.hash = tabName;
+  function setTab(tabName) {
+    if (location) {
+      if (location.hash) {
+        for (let i = 0; i < tabNames.length; i++) {
+          if (location.hash.indexOf(tabNames[i]) == 1) {
+            tabName = tabNames[i];
+            break;
+          }
+        }
+      } else {
+        tabName = defaultTabName;
+      }
     }
 
     for (var i = 0; i < tabControlBtns.length; i++) {
@@ -178,6 +197,8 @@
         tabs[i].style.display = "none";
       }
     }
+
+    currentTabName = tabName;
   }
 
   function closePopup(id) {
