@@ -171,8 +171,13 @@ footer {
   border-color: #f02;
 }
 
-.centered {
+.centered,
+.bottom {
   text-align: center;
+}
+
+.bottom > li {
+  margin-bottom: 0.5em;
 }
 
 .fill {
@@ -290,9 +295,7 @@ footer {
 
 .item a:hover,
 .to-top::before,
-.to-top::after,
-.go-back::before,
-.go-back::after {
+.to-top::after {
   color: #00f;
 }
 
@@ -302,19 +305,9 @@ footer {
   font-weight: normal;
 }
 
-.go-back::before {
-  content: "<< ";
-}
-
-.go-back::after {
-  content: " <";
-}
-
 .item a:active,
 .to-top:active::before,
-.to-top:active::after,
-.go-back:active::before,
-.go-back:active::after {
+.to-top:active::after {
   color: #f02;
 }
 
