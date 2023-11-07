@@ -290,7 +290,9 @@ footer {
 
 .item a:hover,
 .to-top::before,
-.to-top::after {
+.to-top::after,
+.go-back::before,
+.go-back::after {
   color: #00f;
 }
 
@@ -300,9 +302,19 @@ footer {
   font-weight: normal;
 }
 
+.go-back::before {
+  content: "<< ";
+}
+
+.go-back::after {
+  content: " <";
+}
+
 .item a:active,
 .to-top:active::before,
-.to-top:active::after {
+.to-top:active::after,
+.go-back:active::before,
+.go-back:active::after {
   color: #f02;
 }
 
