@@ -265,6 +265,7 @@ footer {
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: center;
+  margin-top: 1em;
   margin-bottom: 1.5em;
 }
 
