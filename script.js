@@ -10,16 +10,6 @@
     return;
   }
 
-  if (localStorage) {
-    var chooseLang = document.getElementById("choose-lang");
-    if (chooseLang) {
-      var activeLangBtn = chooseLang.querySelector("button");
-      if (activeLangBtn) {
-        localStorage.setItem("lang", activeLangBtn.lang);
-      }
-    }
-  }
-
   if (!String.prototype.split) {
     String.prototype.split = function (sep) {
       var str = this.toString();
@@ -85,6 +75,25 @@
     };
   }
 
+  // TODO: refactor tabs to allow multiple tab groups
+  var tabSaveVar = "";
+  var savedTab = "";
+  if (localStorage) {
+    var chooseLang = document.getElementById("choose-lang");
+    if (chooseLang) {
+      var activeLangBtn = chooseLang.querySelector("button");
+      if (activeLangBtn) {
+        localStorage.setItem("lang", activeLangBtn.lang);
+      }
+    }
+
+    var tabSaveElement = document.querySelector("[data-tab-save]");
+    if (tabSaveElement) {
+      tabSaveVar = tabSaveElement.getAttribute("data-tab-save");
+      savedTab = localStorage.getItem(tabSaveVar);
+    }
+  }
+
   var tabControlBtns = document.querySelectorAll("[data-tab-ctrl]");
   var tabs = document.querySelectorAll("[data-tab]");
 
@@ -99,6 +108,9 @@
   }
   if (!defaultTabName) {
     defaultTabName = tabNames[0];
+  }
+  if (tabSaveVar && savedTab && tabNames.indexOf(savedTab) >= 0) {
+    defaultTabName = savedTab;
   }
 
   var currentTabName = defaultTabName;
@@ -194,6 +206,9 @@
       } else {
         tabName = defaultTabName;
       }
+    }
+    if (tabSaveVar) {
+      localStorage.setItem(tabSaveVar, tabName);
     }
 
     for (var i = 0; i < tabControlBtns.length; i++) {
