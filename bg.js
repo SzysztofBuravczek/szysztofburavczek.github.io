@@ -32,11 +32,58 @@
         !(data[iB] || data[iR] || data[iG]) * 255 ||
         ((data[iB] || data[iR]) && data[iG]);
     }
-    data[iA] = 8;
+    data[iA] = 12;
   }
   ctx.putImageData(imageData, 0, 0);
   background.style.backgroundImage =
     "url(" + canvas.toDataURL("image/png") + ")";
-  background.style.backgroundColor = "#ddeaf4";
   background.style.backgroundPosition = "center top";
+
+  if (getComputedStyle) {
+    var computedColor = /rgb\((\d+),\s?(\d+),\s?(\d+)\)/.exec(
+      getComputedStyle(background).backgroundColor
+    );
+    if (computedColor) {
+      var sumRA = 0;
+      var sumGA = 0;
+      var sumBA = 0;
+      var sumNotA = 65280;
+      for (var i = 0; i < 256; i++) {
+        iR = 4 * i;
+        iG = iR + 1;
+        iB = iG + 1;
+        iA = iB + 1;
+
+        sumRA += data[iR] * data[iA];
+        sumGA += data[iG] * data[iA];
+        sumBA += data[iB] * data[iA];
+        sumNotA -= data[iA];
+      }
+
+      var R = (65280 * Number(computedColor[1]) - sumRA) / sumNotA;
+      var G = (65280 * Number(computedColor[2]) - sumGA) / sumNotA;
+      var B = (65280 * Number(computedColor[3]) - sumBA) / sumNotA;
+
+      if (R > 255) R = 255;
+      if (G > 255) G = 255;
+      if (B > 255) B = 255;
+
+      background.style.backgroundColor =
+        "rgb(" +
+        Math.round(R) +
+        "," +
+        Math.round(G) +
+        "," +
+        Math.round(B) +
+        ")";
+    } else {
+      defaultBgColor();
+    }
+  } else {
+    defaultBgColor();
+  }
+
+  function defaultBgColor() {
+    background.style.backgroundColor = "#e0f1f7";
+  }
 })();
