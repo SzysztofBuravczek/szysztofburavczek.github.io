@@ -36,7 +36,9 @@
   }
   ctx.putImageData(imageData, 0, 0);
   background.style.backgroundImage =
-    "url(" + canvas.toDataURL("image/png") + ")";
+    "linear-gradient(45deg, rgba(0,0,0,0.1), transparent 10%, transparent 85%, rgba(0,0,0,0.125)), url(" +
+    canvas.toDataURL("image/png") +
+    ")";
   background.style.backgroundPosition = "center top";
 
   if (getComputedStyle) {
