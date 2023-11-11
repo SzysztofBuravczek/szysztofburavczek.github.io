@@ -62,9 +62,9 @@
         sumNotA -= data[iA];
       }
 
-      var R = (65280 * Number(computedColor[1]) - sumRA) / sumNotA;
-      var G = (65280 * Number(computedColor[2]) - sumGA) / sumNotA;
-      var B = (65280 * Number(computedColor[3]) - sumBA) / sumNotA;
+      var R = (65280 * computedColor[1] - sumRA) / sumNotA;
+      var G = (65280 * computedColor[2] - sumGA) / sumNotA;
+      var B = (65280 * computedColor[3] - sumBA) / sumNotA;
 
       if (R > 255) R = 255;
       if (G > 255) G = 255;
