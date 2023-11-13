@@ -358,6 +358,13 @@ footer {
   border-top-width: 0.1em;
 }
 
+.outer {
+  padding-left: 0.6em;
+  background-image: url(/images/outer.svg);
+  background-size: 0.55em;
+  background-repeat: no-repeat;
+}
+
 #backdrop {
   position: fixed;
   left: 0;
