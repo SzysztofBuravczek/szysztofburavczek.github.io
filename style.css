@@ -361,8 +361,11 @@ footer {
 .outer {
   padding-left: 0.6em;
   background-image: url(/images/outer.svg);
-  background-size: 0.55em;
+  background-size: 0.6em;
   background-repeat: no-repeat;
+  box-shadow: 0 0 0.5em rgba(255, 255, 255, 0.25);
+  background-color: rgba(255, 255, 255, 0.25);
+  border-radius: 0.25em;
 }
 
 #backdrop {

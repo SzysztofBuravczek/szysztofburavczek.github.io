@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<svg version="1.2" baseProfile="tiny" width="23.72mm" height="29.97mm" viewBox="5206 4836 2372 2997" preserveAspectRatio="xMidYMid" fill-rule="evenodd" stroke-width="28.222" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve">
- <g visibility="visible" id="Slide_1">
+<svg version="1.2" baseProfile="tiny" width="22.57mm" height="24.82mm" viewBox="10604 9204 2257 2482" preserveAspectRatio="xMidYMid" fill-rule="evenodd" stroke-width="28.222" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve">
   <g>
-   <path fill="none" stroke="#000" id="Drawing_1_0" stroke-width="203" stroke-linejoin="round" d="M 6969,7731 C 5318,7350 4048,5445 7477,5318"/>
+   <path fill="none" stroke="#000" stroke-width="102" stroke-linejoin="round" d="M 11413,9255 L 12810,9636 11794,10271"/>
+   <path fill="#000" stroke="none" d="M 11922,11287 C 11287,11541 9509,10017 12850,9656 9636,9382 10398,11922 11922,11668 12049,11668 12176,11414 11922,11287 Z"/>
   </g>
-  <g>
-   <path fill="none" stroke="#000" id="Drawing_2_0" stroke-width="203" stroke-linejoin="round" d="M 6080,4937 L 7477,5318 6461,5953"/>
-  </g>
- </g>
 </svg>
