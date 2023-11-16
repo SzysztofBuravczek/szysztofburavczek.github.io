@@ -206,14 +206,6 @@ footer {
   white-space: pre;
 }
 
-.no-bottom {
-  margin-bottom: 0;
-}
-
-.no-top {
-  margin-top: 0;
-}
-
 .comment {
   font-style: italic;
 }
@@ -260,7 +252,7 @@ footer {
 }
 
 .links,
-.releases {
+.gallery {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
@@ -273,7 +265,7 @@ footer {
   width: 6em;
 }
 
-.releases > li {
+.gallery > li {
   width: 10em;
 }
 
@@ -366,6 +358,14 @@ footer {
   box-shadow: 0 0 0.5em rgba(255, 255, 255, 0.25);
   background-color: rgba(255, 255, 255, 0.25);
   border-radius: 0.25em;
+}
+
+.no-bottom {
+  margin-bottom: 0;
+}
+
+.no-top {
+  margin-top: 0;
 }
 
 #backdrop {
