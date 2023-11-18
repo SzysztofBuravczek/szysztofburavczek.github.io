@@ -143,10 +143,20 @@
   });
 
   function respond(target, e) {
-    if (!target.getAttribute) {
-      return false;
-    }
     var catched = false;
+
+    if (target.tagName == "VIDEO" && target.play && target.pause) {
+      if (target.paused) {
+        target.play();
+      } else {
+        target.pause();
+      }
+      catched = true;
+    }
+
+    if (!target.getAttribute) {
+      return catched;
+    }
 
     var tabCtrl = target.getAttribute("data-tab-ctrl");
     var close = target.getAttribute("data-close");
