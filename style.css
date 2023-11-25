@@ -405,6 +405,10 @@ footer {
     margin-bottom: 0;
   }
 
+  header > div {
+    width: 3em;
+  }
+
   .background {
     padding-top: 0.2em;
   }
