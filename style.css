@@ -317,10 +317,6 @@ footer {
   font-weight: bold;
 }
 
-.sorted {
-  margin-bottom: 1.5em;
-}
-
 .cover {
   max-width: 30em;
   width: 100%;
@@ -366,6 +362,10 @@ footer {
 
 .no-top {
   margin-top: 0;
+}
+
+.p-like {
+  margin-bottom: 1.5em;
 }
 
 #backdrop {
