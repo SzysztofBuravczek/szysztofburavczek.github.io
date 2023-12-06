@@ -77,6 +77,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-top: 0.2em;
 }
 
 nav,
@@ -132,7 +133,7 @@ footer {
 
 .background {
   max-width: 50em;
-  padding: 1em;
+  padding: 0 1em;
   background-color: #dae8f2;
   margin: auto;
   border-radius: 0.5em;
@@ -407,10 +408,6 @@ footer {
 
   header > div {
     width: 3em;
-  }
-
-  .background {
-    padding-top: 0.2em;
   }
 }
 
