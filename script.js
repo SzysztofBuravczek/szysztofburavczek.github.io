@@ -129,17 +129,6 @@
 
   addEventListener("hashchange", function () {
     setTab(currentTabName);
-
-    var element;
-    if (location && location.hash) {
-      element = document.querySelector(location.hash);
-    }
-    if (!element) {
-      element = document.querySelector("#top");
-    }
-    if (element.scrollIntoView) {
-      element.scrollIntoView();
-    }
   });
 
   function respond(target, e) {
@@ -205,6 +194,9 @@
   }
 
   function setTab(tabName) {
+    // Also helps the location.hash mechanics to work without lags
+    var element;
+
     if (location) {
       if (location.hash) {
         for (let i = 0; i < tabNames.length; i++) {
@@ -213,8 +205,10 @@
             break;
           }
         }
+        element = document.querySelector(location.hash);
       } else {
         tabName = defaultTabName;
+        element = document.querySelector("#top");
       }
     }
     if (tabSaveVar) {
@@ -238,6 +232,10 @@
     }
 
     currentTabName = tabName;
+
+    if (element && element.scrollIntoView) {
+      element.scrollIntoView();
+    }
   }
 
   function closePopup(id) {
