@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /images/*-svgrepo-*.svg
+
+Sitemap: https://szysztofburavczek.github.io/sitemap.xml
